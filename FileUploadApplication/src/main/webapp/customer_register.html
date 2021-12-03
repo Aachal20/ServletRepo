@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>customer Registration</title>
+</head>
+<body>
+	<h1 style="color: red; text-align: center">File Uploading
+		Application</h1>
+
+	<form action="fileurl" method="POST" enctype="multipart/form-data">
+		<table border="1" align="center" bgcolor="cyan">
+			<tr>
+				<td>customer Name: </td>
+				<td><input type="text" name="cname"></td>
+			</tr>
+			<tr>
+				<td>customer Address: </td>
+				<td><input type="text"  name="caddr"></td>
+			</tr>
+			<tr>
+				<td>Customer profile: </td>
+				<td><input type="file" name="f1"></td>
+			</tr>
+			<tr>
+				<td>customer photo: </td>
+				<td><input type="file" name="photo"></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="register" ></td>
+				<td><input type="reset" value="Cancel"></td>
+			</tr>
+		</table>
+	</form>
+	
+</body>
+</html>
