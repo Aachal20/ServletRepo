@@ -19,7 +19,7 @@ import javazoom.upload.MultipartFormDataRequest;
 import javazoom.upload.UploadBean;
 import javazoom.upload.UploadException;
 import javazoom.upload.UploadFile;
-//@WebServlet("/register")
+@WebServlet("/uploadurl")
 public class FileUploadServlet extends HttpServlet {
 	private static final String INSERT_QUERY="INSERT INTO CUSTOMER_INFO VALUES(PID_SEQ.NEXTVAL,?,?,?,?)";
 
@@ -30,7 +30,7 @@ public class FileUploadServlet extends HttpServlet {
 		//set response content type
 		res.setContentType("text/html");
 
-		try {
+		try { 
 			//create special request object as wrapper around req object
 			MultipartFormDataRequest nreq  = new MultipartFormDataRequest(req);
 			//read form data (simple text-boxes data)
@@ -38,16 +38,20 @@ public class FileUploadServlet extends HttpServlet {
 			String addr=nreq.getParameter("caddr");
 			//specify file upload setting 
 			UploadBean ub = new UploadBean();
+			
 			//set folder location
 			ub.setFolderstore("E:\\store");
 			//perform uploading
 			ub.store(nreq);
+			ub.setOverwrite(false);
+			ub.setFilesizelimit(100*1024);
 
 			//get the list of the file that are uploaded
 			Hashtable<String ,UploadFile> ht = nreq.getFiles();
-			String profile=ht.get("f1").getFileName();
-			String photo=ht.get("photo").getFileName();
-			pw.println("<h1 style='color:yellow'> Customer Profile is :::"     +profile+ "      Customer photo is :::"+photo+   "     </h1>");
+			
+			String photo=ht.get("f1").getFileName();
+			String profile=ht.get("photo").getFileName();
+			pw.println("<h1 style='color:yellow'> Customer Profile is :::"     +profile+ "      Customer photo is :::"+photo+   "    uploaded succefully </h1>");
 
 			//write the jdbc code
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -57,8 +61,8 @@ public class FileUploadServlet extends HttpServlet {
 			 
 				ps.setString(1, name);
 				ps.setString(2,addr);
-				ps.setString(3,"E:\\store\\"+profile);
-				ps.setString(4,"E:\\store\\"+photo);
+				ps.setString(3,"E:\\store\\"+photo);
+				ps.setString(4,"E:\\store\\"+profile);
 				//execute the query
 				int result=ps.executeUpdate();
                	//process the resultset
@@ -66,18 +70,22 @@ public class FileUploadServlet extends HttpServlet {
 					pw.println("<h1 style='color:red ; text-align:center'> Customer not register </h1>");
 				else
 					pw.println("<h1 style='color:blue ; text-align:center'> customer register</h1>");
+			
+				//Add home hyperlink
+				pw.println("<br><h1 style='text-align:center'><a href='registerCustomer.html'>Home</a></h1>");
 			}//try2
+			
 		}//try1
 		catch(Exception e) {
 			e.printStackTrace();
-			pw.println("<h1 style='color:red ; text-align:center'> Exception occour(Enter small name size file in profile)</h1>");
+			pw.println("<h1 style='color:red ; text-align:center'> Exception occour At FileUploading</h1>");
 			System.out.println("exception e");
 		}
-		
+		//close stream
+		pw.close();
 	}//doget
 	@Override
 	public  void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		doGet(req, res);
 	}//dopost
-
 }//class
