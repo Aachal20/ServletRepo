@@ -1,0 +1,17 @@
+<web-app>
+<welcome-file-list>
+	<welcome-file>page.html</welcome-file>
+</welcome-file-list>
+
+<!--servlet configuration-->
+<servlet>
+   <servlet-name>aa</servlet-name>
+    <servlet-class>com.nt.servlet.DailyRoutineServlet</servlet-class>
+</servlet>
+
+<!--servlet mapping Configuration-->
+ <servlet-mapping>
+       <servlet-name>aa</servlet-name>
+         <url-pattern>/rourl</url-pattern>
+</servlet-mapping>
+</web-app>
