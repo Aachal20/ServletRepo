@@ -1,0 +1,17 @@
+<web-app>
+<welcome-file-list>
+	<welcome-file>page.html</welcome-file>
+</welcome-file-list>
+
+<!--servlet configuration-->
+<servlet>
+   <servlet-name>anchal</servlet-name>
+    <servlet-class>com.nt.servlet.FoodiServlet</servlet-class>
+</servlet>
+
+<!--servlet mapping Configuration-->
+ <servlet-mapping>
+       <servlet-name>anchal</servlet-name>
+         <url-pattern>/hungryurl</url-pattern>
+</servlet-mapping>
+</web-app>
