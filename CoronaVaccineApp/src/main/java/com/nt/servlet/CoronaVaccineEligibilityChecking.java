@@ -46,7 +46,7 @@ public class CoronaVaccineEligibilityChecking extends HttpServlet {
 			pw.println("<h1 style = 'color:red;text-align:center'>Miss ."+name+" U are  Eligible for Corona Vaccination</h1>");
 
 		//add home hyperlink(Graphical hyperlink)
-		pw.println("<a href='corona_vaccine.html'><img src ='images/fly.jpg'></a>");
+		pw.println("<a href='corona_vaccine.html'><img src ='images/pay.jpg'></a>");
 		//close streams
 		pw.close();
 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Country capitals Sevlet</title>
+</head>
+<body>
+	<h1 style="color: red; text-align: center">Html to Servlet
+		Communication using JavaScript</h1>
+	<form name="frm" action="capitalsurl" method="GET">
+		Select Country:: <select name="country" onchange="send()">
+			<option value="-1" selected>--select a value</option>
+			<option value="0">India</option>
+			<option value="1">Pakistan</option>
+			<option value="2">USA</option>
+			<option value="3">China</option>
+			<option value="4">Bangaladesh</option>
+			<option value="5">France</option>
+		</select>
+
+	</form>
+	<script language="JavaScript">
+		function send() {
+			frm.submit();
+		}
+	</script>
+
+</body>
+</html>
