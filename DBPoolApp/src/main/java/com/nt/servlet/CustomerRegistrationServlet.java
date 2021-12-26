@@ -31,9 +31,9 @@ public class CustomerRegistrationServlet extends HttpServlet {
 		long mobNo = Long.parseLong(req.getParameter("mobNo"));
 
 		//get pooled jdbc connection
-         try(Connection con = getPooledConnection();
+		try(Connection con = getPooledConnection();
 				PreparedStatement ps = con.prepareStatement(CUSTOMER_INSERT_QUERY);
-        		 ){
+				){
 			//SET VALUES TO QUERY PARAM
 
 			ps.setString(1, name);
@@ -50,7 +50,7 @@ public class CustomerRegistrationServlet extends HttpServlet {
 			else
 				pw.println("<h1 style='color:green;text-align:center'>Customer is not registerd</h1>");
 
-			//  }//else
+
 			//add hyperlink
 			pw.println("<br><br><a href ='Customer_register.html'>HOME</a>");
 			//close strems
@@ -76,8 +76,8 @@ public class CustomerRegistrationServlet extends HttpServlet {
 		DataSource  ds =(DataSource)ic.lookup("DsJndi");
 		//get pooled jdbc connection
 		Connection con =ds.getConnection();
-		//	return null;
 		return con;
+		
 	}
 }
 

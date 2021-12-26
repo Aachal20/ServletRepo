@@ -39,7 +39,7 @@ public class FileUploadServlet extends HttpServlet {
 			//specify file upload setting 
 			UploadBean ub = new UploadBean();
 			
-			//set folder location
+			//set folder location in server machine
 			ub.setFolderstore("E:\\store");
 			//perform uploading
 			ub.store(nreq);
