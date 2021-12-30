@@ -11,7 +11,7 @@
 	<!-- Create/Locate Java bean class object -->
 	<jsp:useBean id="emp" class="com.nt.beans.Employee" scope="request" />
 
-	<!-- Write form data to have Java Bean class object -->
+	<!-- Write form data to  Java Bean class object -->
 	<jsp:setProperty name="emp" property="*" />
 
 	<!-- Create/Locate service class object -->
@@ -24,7 +24,7 @@
 	%>
 <!-- Read the input and result from java bean class object and  display on the browser-->
 
-<h1 style="color: red; text-align: center">Employee PaySlip Repor </h1>
+<h1 style="color: red; text-align: center">Employee PaySlip Report</h1>
 
 
 	<table border="1" bgcolor="yellow" align="center">
@@ -32,10 +32,10 @@
 			<td>Employee Name::</td>
 			<td> <jsp:getProperty  property ="ename" name="emp"/></td>
 		</tr>
-		<tr>
+		<%-- <tr>
 			<td>Employee Address::</td>
 			<td> <jsp:getProperty  property ="eadd" name="emp"/></td>
-		</tr>
+		</tr> --%>
 		
 		<tr>
 			<td>Employee GrossSalary::</td>

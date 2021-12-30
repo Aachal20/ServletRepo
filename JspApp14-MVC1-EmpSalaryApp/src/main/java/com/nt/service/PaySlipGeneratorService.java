@@ -10,7 +10,7 @@ public class PaySlipGeneratorService {
 		float grossSalary = emp.getBasicSalary()+emp.getBasicSalary()*0.4f;
 		float netSalary = grossSalary-(grossSalary*0.2f);
 		
-		//Set the generate gross,netSalary back to java bean class object
+		//Send the generated gross,netSalary back to java bean class object
 		emp.setGrossSalary(grossSalary);
 		emp.setNetSalary(netSalary);
 	}

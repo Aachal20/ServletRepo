@@ -19,7 +19,7 @@ public class HeaderServlet extends HttpServlet {
 		//get PrintWriter
 		pw=res.getWriter();
 		//write header content to the web page
-		pw.println("<marquee><img src='images/thehindu.png'> </marquee>");
+		pw.println("<marquee  width='50%' ;direction='right'><h1>Employee Management System</h1></marquee>");
 		//do not close stream
 		//pw.close();
 	}
